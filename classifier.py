@@ -30,7 +30,8 @@ PROCUREMENT_ACTION_INTENT = [
 IRRELEVANT_PATTERNS = [
     "workshop", "press release", "communique", "speech", "inauguration",
     "seminar", "celebration", "courtesy visit", "courtesy call",
-    "discours", "atelier", "communiqué", "point de presse"
+    "discours", "atelier", "communiqué", "point de presse", "mascot",
+    "licensing & registration", "consumer education", "complaint against"
 ]
 
 
@@ -61,6 +62,9 @@ class OpportunityClassifier:
         )
         self.flat_buyers = set(b.strip().lower() for buyers in self.buyer_entities.values() for b in buyers)
 
+        # Buyer entities include project units
+        self.flat_buyers.update({"pafen", "namfisa", "setic", "armp", "ufsa", "ppda", "ppra", "coref"})
+
         self.flat_early_signals = {}
         for area, data in self.early_signals.items():
             for kw in data.get("keywords", []):
@@ -69,17 +73,17 @@ class OpportunityClassifier:
         self.strict_exclusions = [ex["term"].strip().lower() for ex in self.negative_filters.get("strict_exclusions", [])]
         self.exemptions_whitelist = [w.strip().lower() for w in self.negative_filters.get("exemptions_whitelist", [])]
 
-        # Primary anchors for core opportunities
+        # Primary anchors are ONLY real software/system domains
         self.primary_anchors = {
             "ifmis", "fmis", "grp", "gbfmis", "gifmis", "gfmis",
             "integrated financial management", "government resource planning",
             "public financial management system", "treasury single account",
             "sigfp", "sigf", "compte unique du trésor", "gestion des finances publiques",
             "sigfe", "conta única do tesouro", "gestão das finanças públicas",
-            "hrmis", "sigrh", "gestion des ressources humaines",
+            "hrmis", "sigrh", "gestion des ressources humaines", "human resources administration",
             "e-gp", "egp", "electronic government procurement", "marchés publics électroniques",
             "budgeting, planning", "financial reporting solution", "performance management solution",
-            "pafen", "namfisa", "نظام معلومات الإدارة المالية", "نظام الإدارة المالية المتكامل",
+            "cut", "نظام معلومات الإدارة المالية", "نظام الإدارة المالية المتكامل",
             "የተቀናጀ የፋይናንስ አስተዳደር መረጃ ሥርዓት"
         }
 
@@ -87,14 +91,16 @@ class OpportunityClassifier:
         search_corpus = f"{title} {description} {buyer} {country}".lower()
         has_valid_deadline = kwargs.get("has_valid_deadline", False)
 
-        if not has_valid_deadline:
-            if any(p in search_corpus for p in IRRELEVANT_PATTERNS):
-                return {"is_relevant": False, "tier": "EXCLUDED", "reason": "Press release"}
+        # Drop marketing, speech, and non-procurement items
+        if any(p in search_corpus for p in IRRELEVANT_PATTERNS):
+            return {"is_relevant": False, "tier": "EXCLUDED", "reason": "Non-procurement / PR"}
 
+        # Verify procurement action intent
         has_intent = any(i in search_corpus for i in PROCUREMENT_ACTION_INTENT) or has_valid_deadline
         if not has_intent:
             return {"is_relevant": False, "tier": "EXCLUDED", "reason": "No procurement action intent"}
 
+        # Check negative filters
         is_whitelisted = any(w in search_corpus for w in self.exemptions_whitelist)
         if not is_whitelisted:
             for exc in self.strict_exclusions:
@@ -120,7 +126,7 @@ class OpportunityClassifier:
         elif matched_early:
             tier = "TIER_2_EARLY_SIGNAL"
             is_relevant = True
-        elif all_direct_matches:
+        elif all_direct_matches and matched_buyers:
             tier = "TIER_3_ADJACENT"
             is_relevant = True
         else:
