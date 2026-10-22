@@ -1,11 +1,644 @@
 {
-  "last_updated": "2026-10-22 14:36:11 UTC",
-  "total_opportunities": 0,
-  "new_this_cycle": 0,
+  "last_updated": "2026-10-22 14:49:02 UTC",
+  "total_opportunities": 38,
+  "new_this_cycle": 37,
   "tier_counts": {
     "TIER_1_DIRECT_GRP": 0,
-    "TIER_2_EARLY_SIGNAL": 0,
-    "TIER_3_ADJACENT": 0
+    "TIER_2_EARLY_SIGNAL": 32,
+    "TIER_3_ADJACENT": 6
   },
-  "tenders": []
+  "tenders": [
+    {
+      "id": "South Africa_1903846366272405525",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "▪ RSA Retailbonds ▪ Investor Relations ▪ Co-operative Banks Development Agency ▪ Office of the Chief Procurement Officer ▪ Committee of 10 (C10) ▪ Tender Bulletins ▪ PFMA ▪ Standard Chart of Accounts (SCOA) ▪ Neighbourhood Development Partnership Programme (NDPP) ▪ Register for Tender Defaulters ▪ D",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 65,
+      "matched_terms": [
+        "national treasury",
+        "chart of accounts",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "http://www.rsaretailbonds.gov.za/",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "Botswana_7554457585820417039",
+      "country": "Botswana",
+      "region": "Southern Africa",
+      "entity": "Ministry of Finance / Treasury",
+      "title": "[Request for Expression of Interest] GFPP for Promoting Participation and Enhancing Learning (PROPEL) Botswana - This activity will support development of Project Operations manual and related materials",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 65,
+      "matched_terms": [
+        "treasury",
+        "gfp",
+        "ministry of finance",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://projects.worldbank.org/en/projects-operations/procurement-detail/OP00476357",
+      "deadline": "2026-11-05",
+      "days_left": 13
+    },
+    {
+      "id": "Ethiopia_4279093054622542380",
+      "country": "Ethiopia",
+      "region": "Eastern Africa",
+      "entity": "Ministry of Finance / Treasury",
+      "title": "[Request for Expression of Interest] Support for Preparation of the Modernizing Ethiopia’s Statistical System Project - Hiring of a Monitoring and Evaluation Specialist",
+      "tier": "TIER_3_ADJACENT",
+      "score": 50,
+      "matched_terms": [
+        "treasury",
+        "ministry of finance",
+        "uat"
+      ],
+      "url": "https://projects.worldbank.org/en/projects-operations/procurement-detail/OP00476048",
+      "deadline": "2026-11-03",
+      "days_left": 11
+    },
+    {
+      "id": "Somalia_3893849897844114242",
+      "country": "Somalia",
+      "region": "Eastern Africa",
+      "entity": "Ministry of Finance / Treasury",
+      "title": "[Request for Expression of Interest] Somalia Urban Resilience Project - Phase II - PIU MONITORING AND EVALUATION SPECIALIST",
+      "tier": "TIER_3_ADJACENT",
+      "score": 50,
+      "matched_terms": [
+        "treasury",
+        "ministry of finance",
+        "uat"
+      ],
+      "url": "https://projects.worldbank.org/en/projects-operations/procurement-detail/OP00475991",
+      "deadline": "2026-11-05",
+      "days_left": 13
+    },
+    {
+      "id": "Botswana_9028766403946359492",
+      "country": "Botswana",
+      "region": "Southern Africa",
+      "entity": "Ministry of Finance / Treasury",
+      "title": "[Request for Expression of Interest] GFPP for Promoting Participation and Enhancing Learning (PROPEL) Botswana - This activity will support hiring of a Financial Management specialist to support the Project Delivery Team (PDT).",
+      "tier": "TIER_3_ADJACENT",
+      "score": 50,
+      "matched_terms": [
+        "treasury",
+        "gfp",
+        "ministry of finance"
+      ],
+      "url": "https://projects.worldbank.org/en/projects-operations/procurement-detail/OP00476351",
+      "deadline": "2026-11-09",
+      "days_left": 17
+    },
+    {
+      "id": "Botswana_934960490429217378",
+      "country": "Botswana",
+      "region": "Southern Africa",
+      "entity": "Ministry of Finance / Treasury",
+      "title": "[Request for Expression of Interest] GFPP for Promoting Participation and Enhancing Learning (PROPEL) Botswana - This activity will support hiring of a procurement specialist to support the Project Delivery Team (PDT).",
+      "tier": "TIER_3_ADJACENT",
+      "score": 50,
+      "matched_terms": [
+        "treasury",
+        "gfp",
+        "ministry of finance"
+      ],
+      "url": "https://projects.worldbank.org/en/projects-operations/procurement-detail/OP00476353",
+      "deadline": "2026-11-09",
+      "days_left": 17
+    },
+    {
+      "id": "Botswana_6241515476867856941",
+      "country": "Botswana",
+      "region": "Southern Africa",
+      "entity": "Ministry of Finance / Treasury",
+      "title": "[Request for Expression of Interest] GFPP for Promoting Participation and Enhancing Learning (PROPEL) Botswana - This activity includes undertaking and/or updating E&S assessments, as relevant, preparing E&S risk management instruments including those required for school infrastructure, construction",
+      "tier": "TIER_3_ADJACENT",
+      "score": 50,
+      "matched_terms": [
+        "treasury",
+        "gfp",
+        "ministry of finance"
+      ],
+      "url": "https://projects.worldbank.org/en/projects-operations/procurement-detail/OP00476348",
+      "deadline": "2026-11-09",
+      "days_left": 17
+    },
+    {
+      "id": "Botswana_6241515476867856941",
+      "country": "Botswana",
+      "region": "Southern Africa",
+      "entity": "Ministry of Finance / Treasury",
+      "title": "[Request for Expression of Interest] GFPP for Promoting Participation and Enhancing Learning (PROPEL) Botswana - This activity includes undertaking and/or updating E&S assessments, as relevant, preparing E&S risk management instruments including those required for school infrastructure, construction",
+      "tier": "TIER_3_ADJACENT",
+      "score": 50,
+      "matched_terms": [
+        "treasury",
+        "gfp",
+        "ministry of finance"
+      ],
+      "url": "https://projects.worldbank.org/en/projects-operations/procurement-detail/OP00476349",
+      "deadline": "2026-11-09",
+      "days_left": 17
+    },
+    {
+      "id": "South Africa_1640038228852047931",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT003-2025 NT003-2025: APPOINTMENT OF A PANEL OF CONSULTANTS TO THE OFFICE OF THE DIRECTOR GENERAL FOR A PERIOD OF THREE (3) YEARS. (2,531kb) NT003-2025 : Annexure A Technical Cover Page (73kb) NT003-2025 : Annexure B CV Template (82kb) NT003-2025 : Notice to bidders (731kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT003-2025 Bid Document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_2777750935306193963",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT007-2024 NT007-2024: APPOINTMENT OF A SERVICE PROVIDER FOR THE PROVISION OF CONTACT CENTRE SERVICES FOR THE OFFICE OF THE CHIEF PROCUREMENT OFFICER FOR A PERIOD OF THREE (3) YEARS (2,528kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT007-2024 Bid Document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_739118798037674601",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT017-2022 NT017-2022: Appointment of a service provider for the enhancement, maintenance and support of the Central Supplier Database for office of the Chief Procurement Officer for a period of five (5) years. (2,154kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT017-2022 Bid Document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_3776751121676740054",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT014-2022 NT014-2022: APPOINTMENT OF A PANEL OF CONSULTANTS TO THE ASSET AND LIABILITY MANAGEMENT DIVISION FOR A PERIOD OF THREE (3) YEARS (2,109kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT014-2022 Bid Document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_8686529367283844597",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT005-2022 NT005-2022: Appointment of an Urban Specialist Consultant for Provision of Technical Assistance and Capacity Support to South African Metros on Urban Planning Reforms, Core City Governance, Component Cities Support Programme Phase II for a Period of Two (2) Years. (1,247kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT005-2022 Bid Document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_457017217013040144",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT010-3-2017 NT010-3-2017: Appointment of a Service Provider to Assist the Office of the Chief Procurement Officer Within the National Treasury, South Africa With the Development of a Procurement Codification Standard for a Period of (3) Three Years. (62kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT010-3-2017.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_7107199299468132671",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT010-3-2017 NT010-3-2017: Appointment of a Service Provider to Assist the Office of the Chief Procurement Officer Within the National Treasury, South Africa With the Development of a Procurement Codification Standard for a Period of (3) Three Years. (2,963kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT010-3-2017 Bid Document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_94921922727008690",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT002-1-2019 NT002-1-2019: Appointment of a Panel of Consultants to the Economic Policy Division for a Period of Three (3) Years. (3,241kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT002-1-2019 Bid Document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_8922506115365983567",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT008-2021 NT008-2021: Appointment of a Research Service Provider for Conducting a Study on Government suppliers for the Office of the Chief Procurement Officer for a Period of Six Months 16 July 2021 11:00 AM (3,123kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT008-2021 Bid document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_5087502008042951212",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT003-2021 NT003-2021: Appointment of a Service Provider for the Provision of Contact Centre Services for the Office of the Chief Procurement Officer for a Period of Three (3) Years (3,692kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT003-2021 Bid Document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_736304792876758794",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT007-2021 NT007-2021: Appointment of a Service Provider to Supply and Maintain Office Plants to National Treasury Sites; 240 Madiba Street, 40 Church Square, Tender Information Centre Wing and Sita Centurion for a Period of Three (3) Years (3,280kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT007-2021 Bid document.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_360481434181231507",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT009-2020 NT009-2020: Appointment of a Service Provider for the Enhancement, Maintenance and Support of the Procurement Data Analysis and Visualisation Software and Data Warehouse of the Office of the Chief Procurement Officer for a Period of Three (3) Years. 14 August 2020 at 11:00am (3,549kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT008-2020.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_1458643122206287121",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT010-2-2017 NT010-2-2017: Appointment of a Service Provider to Assist the Office of the Chief Procurement Officer within the National Treasury, South Africa with the Development of a Procurement Codification Standard for a Period of (3) Three Years 15 November 2019 at 11:00am (2,034kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT010-2-2017 Bid Doocument.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_1263547842555114699",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT012-2018 NT012-2018: Appointment of a Service Provider for the Enhancement, Maintenance and Support of the Central Supplier Database for the Office of the Chief Procurement Officer for a Period of Three (3) Years. 31 August 2018 at 11:00am (3 MB)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT012-2018.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_8154249369628836475",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT012-1-2018 NT012-1-2018: Appointment of a Service Provider for the Enhancement, Maintenance and Support of the Central Supplier Database for the Office of the Chief Procurement Officer for a Period of Three (3) Years. 12 August 2019 at 11:00am (3,254kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT012-1-2018.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_3419629552936210071",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT010-2018 NT009-2018: Appointment of a Service Provider(s) to Supply and Maintain Office Plants to National Treasury Sites; 240 Madiba Street, 40 Church Square Tender Information Centre Wing and SITA Centurion for a Period of Three (3) years. 24 August 2018 at 11:00am (2,901kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT010-2018.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_5913219453660559572",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT008-2017 Appointment of Consultants to Develop State Construction Contracts for the Office of the Chief Procurement Officer for a Perios of  6 Months 19 June 2017 (2,178kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT008-2017.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_4869742541891293088",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT010-2017 Appointment of a Service Provider to Assist the Office of the Chief Procurement Officer within the National Treasury, South Africa with the Development of a Procurement Codification Standard for a Period of 12 Months. 23 June 2017 (2,080kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT010-2017.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_3827292212120247118",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT010-1-2017 Appointment of a Service Provider to Assist the Office of the Chief Procurement Officer Within the National Treasury, South African with the Development of a Procurement Codification Standard for a Period of 12 Months. 06 October 2017 (2,174kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT010-1-2017 BID DOCUMENT.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_6071807266706781166",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT011-2017 Appointment of a Service Provider(s) for Data Mining, Cleansing, Categorization, Intergration, Visualization, Reporting Tool and Services to the Office of the Chief Procurement Officer, National Treasury, South Africa for the Period of 12 Months 14 June 2017 (2,368kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT011-2017.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_7033759932261390173",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT016-2017 Appointment of a Service Provider(s) for the sevice of a telecommunication category expert and software licensing implementation experts to support the Office of the Procurement Officer to delevop savings strategies for telecommunication data and related goods and services as well as the",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT016-2017.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_8326895898632941832",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "National Treasury Tender Info",
+      "title": "NT007-2016 Appointment of a professional service provider to provide health category technical support to the Office of the Chief Procurement Officer (OCPO) for a period of 12 months 23 May 2016 at 11:00am (2,551kb)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 45,
+      "matched_terms": [
+        "national treasury",
+        "treasury",
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://www.treasury.gov.za/tenderinfo/tenders/NT007-2016 Notice.pdf",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_1550392951875426038",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "Tender Bulletins SA - Software",
+      "title": "Appointment of Suitably Experienced and Knowledgeable Service Provider to Supply and Modify a Microsoft Dynamics 365 Finance System from the Date of Appointment to 31 March 2030 RFP/SASSETA/24251127/3 - 2026-11-12 11:00",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 15,
+      "matched_terms": [
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://tenderbulletins.co.za/tender-bulletin/appointment-of-suitably-experienced-and-knowledgeable-service-provider-to-supply-and-modify-a-microsoft-dynamics-365-finance-system-from-the-date-of-appointment-to-31-march-2030-2/",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_932378722651378192",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "Tender Bulletins SA - Software",
+      "title": "Request for Information (rfi) for the Appointment of a Service Provider to Develop, Implement, Maintain and Support a Regulatory Data Hub to Perform Digital Sawem Market Monitoring and Surveillance, Integrated Data Driven Regulatory Decision Making and Business Intelligence for a Period of Five (5)",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 15,
+      "matched_terms": [
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://tenderbulletins.co.za/tender-bulletin/request-for-information-rfi-for-the-appointment-of-a-service-provider-to-develop-implement-maintain-and-support-a-regulatory-data-hub-to-perform-digital-sawem-market-monitoring-and-surveillance-i/",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_2334081029154009620",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "Tender Bulletins SA - Software",
+      "title": "Procurement of Microsoft Dynamics 365 Maintenace Services and Technical Support for a Period of Twelve (12) Months RFQ 012893 - 2026-10-28 10:00",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 15,
+      "matched_terms": [
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://tenderbulletins.co.za/tender-bulletin/procurement-of-microsoft-dynamics-365-maintenace-services-and-technical-support-for-a-period-of-twelve-12-months/",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_4634184268020988640",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "Tender Bulletins SA - Software",
+      "title": "Formal Tender: Td 04/10/2026: Supply, Develop and Delivery of a Fully Functional Website and Hosting Services for Cango Caves for a Period Ending 30 June 2029 FORMAL TENDER TD 04/10/2026 - 2026-11-09 12:00",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 15,
+      "matched_terms": [
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://tenderbulletins.co.za/tender-bulletin/formal-tender-td-04-10-2026-supply-develop-and-delivery-of-a-fully-functional-website-and-hosting-services-for-cango-caves-for-a-period-ending-30-june-2029/",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_6349011384086235103",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "Tender Bulletins SA - Software",
+      "title": "Terms of Reference for the Appointment of a Service Provider for the Provision of Request for Quotation (rfq) for the B-bbee Monitoring Tool to the Nlc for a Period of Three Years. RFQ2026-010-007 - 2026-10-15 11:00",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 15,
+      "matched_terms": [
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://tenderbulletins.co.za/tender-bulletin/terms-of-reference-for-the-appointment-of-a-service-provider-for-the-provision-of-request-for-quotation-rfq-for-the-b-bbee-monitoring-tool-to-the-nlc-for-a-period-of-three-years/",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_4008000048437044323",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "Tender Bulletins SA - Software",
+      "title": "Request for Quotation for the Provision of Professional Services for a Canteen Management Solution for a Period Not Exceeding 24 Months at Airports Company South Africa RFQ 54249 2026-10-12 13:30 2026-10-28 12:00",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 15,
+      "matched_terms": [
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://tenderbulletins.co.za/tender-bulletin/request-for-quotation-for-the-provision-of-professional-services-for-a-canteen-management-solution-for-a-period-not-exceeding-24-months-at-airports-company-south-africa/",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_5942091203709354904",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "Tender Bulletins SA - Software",
+      "title": "Request for Proposals for the Development of Rural Road Asset Management System (rrams) and Professional Support for Ngaka Modiri Molema District Municipality for Period of Three (03) Years (36 Months). NMMDM 25/26/07 PWBS RE-ADVERT - 2026-11-02 11:00",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 15,
+      "matched_terms": [
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://tenderbulletins.co.za/tender-bulletin/request-for-proposals-for-the-development-of-rural-road-asset-management-system-rrams-and-professional-support-for-ngaka-modiri-molema-district-municipality-for-period-of-three-03-years-36-months/",
+      "deadline": "Active Tender",
+      "days_left": null
+    },
+    {
+      "id": "South Africa_3259463705137814421",
+      "country": "South Africa",
+      "region": "Southern Africa",
+      "entity": "Tender Bulletins SA - Software",
+      "title": "Appointment of a Panel of Development Operations Suppliers\r\nTo Provide a Team of Highly Skilled Developers for a Period of Three\r\nYears. RFP/IT/10250147/21 2026-10-07 10:00 2026-10-23 10:00",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 15,
+      "matched_terms": [
+        "per (PEFA/action plans)"
+      ],
+      "url": "https://tenderbulletins.co.za/tender-bulletin/appointment-of-a-panel-of-development-operations-suppliersto-provide-a-team-of-highly-skilled-developers-for-a-period-of-threeyears/",
+      "deadline": "Active Tender",
+      "days_left": null
+    }
+  ]
 }
