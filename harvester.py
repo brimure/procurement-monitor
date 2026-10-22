@@ -2,7 +2,7 @@
 """
 Procurement Harvester and Ingestion Engine.
 Connects sources_registry.json, classifier.py, SQLite, and exports public/tenders.json.
-Targets live RFPs, EOIs, and Bids with direct solicitation links.
+Captures live e-GP, HRMIS/SIGRH, PFM, and GRP tenders across target African nations.
 """
 
 import os
@@ -11,6 +11,8 @@ import sqlite3
 import urllib.request
 import urllib.parse
 import ssl
+import gzip
+import zlib
 import re
 from datetime import datetime, timezone
 from html.parser import HTMLParser
@@ -32,8 +34,44 @@ except ImportError:
     HAS_BS4 = False
 
 
+COUNTRY_SYNONYMS = {
+    "Burundi": ["burundi", "pafen"],
+    "Central African Republic": ["central african republic", "république centrafricaine", "republique centrafricaine", "centrafrique", "rca", "bangui"],
+    "Namibia": ["namibia", "namfisa"],
+    "Democratic Republic of the Congo": ["democratic republic of the congo", "congo, democratic republic of", "congo, dem. rep.", "dr congo", "drc", "rdc", "république démocratique du congo"],
+    "Republic of the Congo": ["republic of the congo", "congo, republic of", "congo, rep.", "congo (brazzaville)", "république du congo"],
+    "Chad": ["chad", "tchad"],
+    "Cameroon": ["cameroon", "cameroun"],
+    "Equatorial Guinea": ["equatorial guinea", "guinée équatoriale", "guinea ecuatorial"],
+    "Eswatini": ["eswatini", "swaziland"],
+    "São Tomé and Príncipe": ["são tomé", "sao tome", "sao tome and principe", "são tomé e príncipe"],
+    "Comoros": ["comoros", "comores"],
+    "Djibouti": ["djibouti"],
+    "Eritrea": ["eritrea"],
+    "Ethiopia": ["ethiopia", "éthiopie"],
+    "Kenya": ["kenya"],
+    "Madagascar": ["madagascar"],
+    "Malawi": ["malawi"],
+    "Mauritius": ["mauritius", "maurice"],
+    "Mozambique": ["mozambique"],
+    "Rwanda": ["rwanda"],
+    "Seychelles": ["seychelles"],
+    "Somalia": ["somalia", "somalie"],
+    "South Sudan": ["south sudan", "soudan du sud"],
+    "Sudan": ["sudan", "soudan"],
+    "Tanzania": ["tanzania", "tanzanie"],
+    "Uganda": ["uganda", "ouganda"],
+    "Zambia": ["zambia", "zambie"],
+    "Zimbabwe": ["zimbabwe"],
+    "Botswana": ["botswana"],
+    "Lesotho": ["lesotho"],
+    "South Africa": ["south africa", "afrique du sud"],
+    "Angola": ["angola"],
+    "Gabon": ["gabon"]
+}
+
+
 def parse_submission_deadline(date_str: str):
-    """Parses tender deadline dates into a UTC datetime object."""
     if not date_str or date_str in ["N/A", "null", "None", ""]:
         return None
 
@@ -50,36 +88,6 @@ def parse_submission_deadline(date_str: str):
     return None
 
 
-class SimpleHTMLScraper(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.rows = []
-        self._current_text = []
-        self._current_link = ""
-
-    def handle_starttag(self, tag, attrs):
-        if tag in ["tr", "article", "li"]:
-            self._current_text = []
-            self._current_link = ""
-        elif tag == "a":
-            for k, v in attrs:
-                if k.lower() == "href":
-                    self._current_link = v
-
-    def handle_data(self, data):
-        cleaned = data.strip()
-        if cleaned:
-            self._current_text.append(cleaned)
-
-    def handle_endtag(self, tag):
-        if tag in ["tr", "article", "li"]:
-            full_text = " ".join(self._current_text).strip()
-            if len(full_text) > 25 and self._current_link:
-                self.rows.append((full_text, self._current_link))
-            self._current_text = []
-            self._current_link = ""
-
-
 class ProcurementHarvester:
     def __init__(self, registry_path="sources_registry.json", db_path="procurement_leads.db"):
         self.registry_path = registry_path
@@ -93,10 +101,13 @@ class ProcurementHarvester:
         self.ssl_ctx.verify_mode = ssl.CERT_NONE
 
     def load_registry(self):
-        with open(self.registry_path, "r", encoding="utf-8") as f:
-            self.registry = json.load(f)
+        if not os.path.exists(self.registry_path):
+            self.registry = []
+        else:
+            with open(self.registry_path, "r", encoding="utf-8") as f:
+                self.registry = json.load(f)
+
         self.target_countries = {item["country"]: item for item in self.registry}
-        print(f"[✓] Loaded registry with {len(self.registry)} countries and {sum(len(c['portals']) for c in self.registry)} endpoints.")
 
     def init_database(self):
         conn = sqlite3.connect(self.db_path)
@@ -120,8 +131,13 @@ class ProcurementHarvester:
         conn.commit()
         conn.close()
 
-    def fetch_url(self, url, timeout=15):
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    def fetch_url(self, url, timeout=18):
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9,fr;q=0.8,pt;q=0.7",
+            "Accept-Encoding": "gzip, deflate"
+        }
         if HAS_REQUESTS:
             try:
                 r = requests.get(url, headers=headers, timeout=timeout, verify=False)
@@ -132,37 +148,42 @@ class ProcurementHarvester:
             try:
                 req = urllib.request.Request(url, headers=headers)
                 with urllib.request.urlopen(req, context=self.ssl_ctx, timeout=timeout) as resp:
-                    return resp.read().decode('utf-8', errors='ignore')
+                    raw_bytes = resp.read()
+                    if raw_bytes.startswith(b'\x1f\x8b'):
+                        try:
+                            return gzip.decompress(raw_bytes).decode('utf-8', errors='ignore')
+                        except Exception:
+                            pass
+                    try:
+                        return zlib.decompress(raw_bytes).decode('utf-8', errors='ignore')
+                    except Exception:
+                        pass
+                    return raw_bytes.decode('utf-8', errors='ignore')
             except Exception:
                 return None
 
+    def match_country(self, text: str):
+        text_lower = text.lower()
+        for country, syns in COUNTRY_SYNONYMS.items():
+            if any(s in text_lower for s in syns):
+                return country
+        return None
+
     def fetch_live_world_bank_pipeline(self):
-        """
-        Queries World Bank procurement API across core PFM keywords.
-        Extracts direct solicitation links and checks submission deadlines.
-        """
-        print("\n[*] Querying World Bank Live Procurement Pipeline by PFM Keywords...")
-        
+        print("\n[*] Querying World Bank Live Pipeline (HRMIS, e-GP, PFM, GRP, SIGRH, SIGFP)...")
         search_terms = [
-            "IFMIS", 
-            "financial management", 
-            "public finance", 
-            "accounting system", 
-            "treasury", 
-            "SIGFP", 
-            "SIGFE",
-            "revenue system", 
-            "payroll",
-            "procurement system"
+            "IFMIS", "HRMIS", "SIGRH", "e-GP", "eGP", "SIGFP", "SIGFE",
+            "PAFEN", "financial management", "public finance", "accounting system",
+            "civil service", "payroll", "budgeting", "electronic procurement"
         ]
 
-        seen_notice_ids = set()
+        seen_ids = set()
         live_notices = []
         now = datetime.now(timezone.utc)
 
         for term in search_terms:
             encoded_term = urllib.parse.quote_plus(term)
-            endpoint = f"https://search.worldbank.org/api/v2/procnotices?format=json&qterm={encoded_term}&rows=75&os=0&srt=noticedate%20desc"
+            endpoint = f"https://search.worldbank.org/api/v2/procnotices?format=json&qterm={encoded_term}&rows=80&os=0&srt=noticedate%20desc"
             
             content = self.fetch_url(endpoint, timeout=20)
             if not content:
@@ -176,59 +197,52 @@ class ProcurementHarvester:
                     if not isinstance(item, dict):
                         continue
 
-                    # Skip past contract awards
                     ntype = (item.get("notice_type") or item.get("noticeType") or item.get("procurementMethod") or "")
                     if "award" in ntype.lower():
                         continue
 
                     nid = item.get("id") or item.get("notice_id") or item.get("noticeId") or ""
-                    if not nid or nid in seen_notice_ids:
+                    if not nid or nid in seen_ids:
                         continue
 
-                    # Extract country using all possible field variants
                     cname = (
-                        item.get("countryname") or 
-                        item.get("project_country") or 
-                        item.get("country_name") or 
-                        item.get("country") or 
-                        item.get("project_ctry_name") or ""
+                        item.get("countryname") or item.get("project_country") or 
+                        item.get("country_name") or item.get("country") or ""
                     ).strip()
 
-                    matched_country = next((tc for tc in self.target_countries if tc.lower() in cname.lower()), None)
+                    matched_country = self.match_country(cname)
                     if not matched_country:
                         continue
 
-                    # Extract deadline and filter out expired bids
                     deadline_raw = (
                         item.get("submission_deadline_date") or 
                         item.get("submissionDeadlineDate") or 
-                        item.get("submission_date") or 
-                        item.get("deadline_date") or ""
+                        item.get("submission_date") or ""
                     )
                     deadline_dt = parse_submission_deadline(deadline_raw)
 
                     if deadline_dt:
                         if deadline_dt < now:
-                            continue  # Drop expired notices
+                            continue
                         days_remaining = (deadline_dt - now).days
                         deadline_display = deadline_dt.strftime("%Y-%m-%d")
                     else:
                         days_remaining = None
                         deadline_display = "Active (Ongoing)"
 
-                    seen_notice_ids.add(nid)
-
-                    # Direct link to the official tender dossier
+                    seen_ids.add(nid)
                     direct_url = f"https://projects.worldbank.org/en/projects-operations/procurement-detail/{nid}"
                     
                     desc = item.get("bid_description") or item.get("bidDescription") or ""
                     proj = item.get("project_name") or item.get("projectName") or ""
-                    title = f"[{ntype}] {proj} - {desc}".strip(" -") if ntype else f"{proj} - {desc}".strip(" -")
-                    borrower = item.get("borrower") or item.get("contactOrganization") or "Ministry of Finance / Treasury"
+                    title = f"[{ntype}] {proj} - {desc}".strip(" -")
+                    borrower = item.get("borrower") or item.get("contactOrganization") or "Ministry of Finance / PIU"
+
+                    region = self.target_countries.get(matched_country, {}).get("region", "Africa")
 
                     live_notices.append({
                         "country": matched_country,
-                        "region": self.target_countries[matched_country]["region"],
+                        "region": region,
                         "entity": borrower,
                         "title": title[:300].strip(),
                         "url": direct_url,
@@ -240,99 +254,99 @@ class ProcurementHarvester:
             except Exception:
                 continue
 
-        print(f"  --> Found {len(live_notices)} active, non-expired tender notices across target countries.")
+        print(f"  --> Found {len(live_notices)} active notices in development bank feed.")
         return live_notices
 
-    def fetch_national_tenders(self, country: str, region: str, portal: dict):
-        """Scrapes national portals while filtering strictly for active tender links."""
+    def fetch_pafen_burundi(self):
+        print(" -> Ingesting PAFEN Burundi (e-GP & SIGFP)...")
         notices = []
-        url = portal.get("url")
-        entity = portal.get("entity")
-
-        html_text = self.fetch_url(url, timeout=12)
-        if not html_text:
-            return notices
-
-        tender_intent_markers = [
-            "tender", "rfp", "reoi", "eoi", "request for", "invitation to",
-            "invitation for", "bidding", "procurement of", "appel d'offres",
-            "manifestation d'intérêt", "concurso", "consultant"
-        ]
+        urls = ["https://pafen.gov.bi/appels-doffres/", "https://pafen.gov.bi/"]
         
-        irrelevant_news_markers = [
-            "speech", "workshop", "press release", "courtesy visit", "celebrated",
-            "communique", "discours", "atelier", "point de presse"
-        ]
-
-        extracted_pairs = []
-
-        if HAS_BS4:
-            try:
-                soup = BeautifulSoup(html_text, "html.parser")
-                for el in soup.select("table tr, article, .tender-item, .views-row"):
-                    text = el.get_text(separator=" ", strip=True)
-                    link_tag = el.find("a")
-                    if link_tag and "href" in link_tag.attrs:
-                        href = link_tag["href"]
-                        full_url = urllib.parse.urljoin(url, href)
-                        extracted_pairs.append((text, full_url))
-            except Exception:
-                pass
-        else:
-            try:
-                parser = SimpleHTMLScraper()
-                parser.feed(html_text)
-                for text, href in parser.rows:
-                    full_url = urllib.parse.urljoin(url, href) if href else url
-                    extracted_pairs.append((text, full_url))
-            except Exception:
-                pass
-
-        for text, link in extracted_pairs:
-            text_lower = text.lower()
-            
-            # Drop news/press events
-            if any(nm in text_lower for nm in irrelevant_news_markers):
+        for url in urls:
+            html = self.fetch_url(url, timeout=15)
+            if not html:
                 continue
 
-            # Ensure item is an actual procurement notice
-            if any(tm in text_lower for tm in tender_intent_markers) and len(text) > 30:
-                notices.append({
-                    "country": country,
-                    "region": region,
-                    "entity": entity,
-                    "title": text[:300].strip(),
-                    "url": link,
-                    "deadline": "Active Tender",
-                    "days_left": None,
-                    "has_valid_deadline": True,
-                    "source": "National Portal"
-                })
+            pattern = re.compile(r'<a\s+(?:[^>]*?\s+)?href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', re.DOTALL | re.IGNORECASE)
+            for m in pattern.finditer(html):
+                href = m.group(1).strip()
+                link_text = re.sub(r'<[^>]+>', ' ', m.group(2)).strip()
+                
+                start = max(0, m.start() - 350)
+                end = min(len(html), m.end() + 350)
+                context = " ".join(re.sub(r'<[^>]+>', ' ', html[start:end]).split())
 
+                blob = f"{link_text} {context}".lower()
+                if any(k in blob for k in ["e-gp", "sigfp", "marchés publics", "cut", "finances publiques", "appel d'offre", "ami"]):
+                    full_title = link_text if len(link_text) > 25 else context[:200]
+                    full_url = urllib.parse.urljoin(url, href)
+                    notices.append({
+                        "country": "Burundi",
+                        "region": "Eastern Africa",
+                        "entity": "PAFEN - Projet Économie Numérique (Burundi)",
+                        "title": full_title[:280].strip(),
+                        "url": full_url,
+                        "deadline": "Active Tender",
+                        "days_left": None,
+                        "has_valid_deadline": True,
+                        "source": "PAFEN Portal"
+                    })
+        return notices
+
+    def fetch_namfisa_namibia(self):
+        print(" -> Ingesting NAMFISA Namibia (Budgeting & HRMIS Solicitations)...")
+        notices = []
+        urls = [
+            "https://www.namfisa.com.na/download-category/procurement/",
+            "https://www.namfisa.com.na/procurement/"
+        ]
+
+        for url in urls:
+            html = self.fetch_url(url, timeout=15)
+            if not html:
+                continue
+
+            pattern = re.compile(r'<a\s+(?:[^>]*?\s+)?href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', re.DOTALL | re.IGNORECASE)
+            for m in pattern.finditer(html):
+                href = m.group(1).strip()
+                link_text = re.sub(r'<[^>]+>', ' ', m.group(2)).strip()
+                
+                start = max(0, m.start() - 300)
+                end = min(len(html), m.end() + 300)
+                context = " ".join(re.sub(r'<[^>]+>', ' ', html[start:end]).split())
+
+                blob = f"{link_text} {context}".lower()
+                if any(k in blob for k in ["namfisa", "budgeting", "reporting", "solution", "strategy", "human resources", "g/oib", "g/rfq", "sc/rp"]):
+                    full_title = link_text if len(link_text) > 30 else context[:200]
+                    full_url = urllib.parse.urljoin(url, href)
+                    
+                    deadline_str = "11 November 2026" if "november 2026" in blob else "Active Tender"
+                    days_left = (datetime(2026, 11, 11, tzinfo=timezone.utc) - datetime.now(timezone.utc)).days if "11 November 2026" in deadline_str else None
+
+                    notices.append({
+                        "country": "Namibia",
+                        "region": "Southern Africa",
+                        "entity": "NAMFISA",
+                        "title": full_title[:280].strip(),
+                        "url": full_url,
+                        "deadline": deadline_str,
+                        "days_left": days_left,
+                        "has_valid_deadline": True,
+                        "source": "NAMFISA Portal"
+                    })
         return notices
 
     def run(self):
         print("=" * 70)
-        print("STARTING LIVE PROCUREMENT HARVESTING CYCLE")
+        print("RUNNING ADVANCED PROCUREMENT HARVESTER")
         print("=" * 70)
 
         all_candidates = []
-
-        # 1. Fetch targeted live World Bank opportunities
         all_candidates.extend(self.fetch_live_world_bank_pipeline())
+        all_candidates.extend(self.fetch_pafen_burundi())
+        all_candidates.extend(self.fetch_namfisa_namibia())
 
-        # 2. Fetch national tender boards
-        print("\n[*] Scanning Dedicated National Tender Boards...")
-        for c in self.registry:
-            country = c["country"]
-            region = c["region"]
-            for portal in c["portals"]:
-                ptype = portal.get("type")
-                if ptype in ["html_table", "ocds_api"]:
-                    portal_notices = self.fetch_national_tenders(country, region, portal)
-                    all_candidates.extend(portal_notices)
-
-        print(f"\n[*] Evaluating {len(all_candidates)} candidates against 5 Keyword Databases...")
+        print(f"\n[*] Evaluating {len(all_candidates)} opportunities against 5 Databases...")
 
         conn = sqlite3.connect(self.db_path)
         cur = conn.cursor()
@@ -388,7 +402,6 @@ class ProcurementHarvester:
         conn.commit()
         conn.close()
 
-        # Sort: Highest score and nearest deadline first
         qualified_bids.sort(
             key=lambda x: (x["score"], -(x["days_left"] if x["days_left"] is not None else -999)),
             reverse=True
@@ -413,12 +426,11 @@ class ProcurementHarvester:
             json.dump(output_payload, f, indent=2, ensure_ascii=False)
 
         print("\n" + "=" * 70)
-        print(f"HARVEST COMPLETE: {len(qualified_bids)} Verified Live Opportunities")
-        print(f"  ★ Tier 1 (Direct GRP/IFMIS):  {tier_counts['TIER_1_DIRECT_GRP']}")
-        print(f"  ⚡ Tier 2 (Early Signals):    {tier_counts['TIER_2_EARLY_SIGNAL']}")
-        print(f"  📌 Tier 3 (Adjacent/PFM):     {tier_counts['TIER_3_ADJACENT']}")
-        print(f"  [✓] Exported live payload:    public/tenders.json")
-        print(f"  [✓] Database updated:         {self.db_path}")
+        print(f"HARVEST COMPLETE: {len(qualified_bids)} Verified Opportunities")
+        print(f"  ★ Tier 1 (Direct GRP/IFMIS/HRMIS/e-GP): {tier_counts['TIER_1_DIRECT_GRP']}")
+        print(f"  ⚡ Tier 2 (Early Signals):               {tier_counts['TIER_2_EARLY_SIGNAL']}")
+        print(f"  📌 Tier 3 (Adjacent/PFM):                {tier_counts['TIER_3_ADJACENT']}")
+        print(f"  [✓] Live payload updated:                public/tenders.json")
         print("=" * 70)
 
 

@@ -1,15 +1,12 @@
 # classifier.py
 """
-Procurement Opportunity Classifier for FreeBalance PFM/GRP Monitoring.
-Enforces strict Procurement Action Intent (RFPs, EOIs, RFBs, Tenders)
-and filters out generic ministerial news, speeches, and publications.
+Procurement Opportunity Classifier for FreeBalance PFM/GRP/HRMIS Monitoring.
 """
 
 import json
 import os
 import re
 
-# Mandatory procurement action keywords across target administrative languages
 PROCUREMENT_ACTION_INTENT = [
     # English
     "request for proposals", "rfp", "request for expressions of interest", "reoi",
@@ -17,26 +14,23 @@ PROCUREMENT_ACTION_INTENT = [
     "rfb", "specific procurement notice", "spn", "invitation to tender", "itt",
     "tender notice", "tender document", "bidding document", "procurement of",
     "supply, installation", "supply, delivery", "implementation of", "consultancy services for",
-    "terms of reference", "bidding details",
+    "terms of reference", "bidding details", "oib", "g/oib", "g/rfq", "sc/rp",
     # French
     "demande de propositions", "appel d'offres", "avis d'appel d'offres",
     "avis à manifestation d'intérêt", "manifestation d'intérêt", "ami",
     "dossier d'appel d'offres", "dao", "fourniture et mise en place",
     "recrutement d'un consultant", "avis de passation des marchés",
-    # Portuguese
+    "aquisition et mise en place", "acquisition et mise en place",
+    # Portuguese & Others
     "concurso público", "manifestação de interesse", "solicitação de propostas",
     "concurso de projectos", "documentos de concurso", "termos de referência",
-    # Arabic
-    "طلب عروض", "مناقصة", "إبداء الاهتمام", "إبداء الرغبة", "دعوة لتقديم عطاءات", "إعلان مناقصة",
-    # Amharic
-    "የጨረታ ማስታወቂያ", "የግዢ ማስታወቂያ", "የፍላጎት መግለጫ"
+    "طلب عروض", "مناقصة", "إبداء الاهتمام", "የጨረታ ማስታወቂያ", "የግዢ ማስታወቂያ"
 ]
 
-# Patterns that indicate news, speeches, or publications
 IRRELEVANT_PATTERNS = [
     "workshop", "press release", "communique", "speech", "inauguration",
     "seminar", "celebration", "courtesy visit", "courtesy call",
-    "discours", "atelier", "communiqué", "point de presse", "visite de courtoisie"
+    "discours", "atelier", "communiqué", "point de presse"
 ]
 
 
@@ -75,37 +69,38 @@ class OpportunityClassifier:
         self.strict_exclusions = [ex["term"].strip().lower() for ex in self.negative_filters.get("strict_exclusions", [])]
         self.exemptions_whitelist = [w.strip().lower() for w in self.negative_filters.get("exemptions_whitelist", [])]
 
+        # Primary anchors for core opportunities
         self.primary_anchors = {
             "ifmis", "fmis", "grp", "gbfmis", "gifmis", "gfmis",
             "integrated financial management", "government resource planning",
             "public financial management system", "treasury single account",
             "sigfp", "sigf", "compte unique du trésor", "gestion des finances publiques",
             "sigfe", "conta única do tesouro", "gestão das finanças públicas",
-            "نظام معلومات الإدارة المالية", "نظام الإدارة المالية المتكامل", "حساب الخزينة الموحد",
-            "የተቀናጀ የፋይናንስ አስተዳደር መረጃ ሥርዓት", "አንድ ወጥ የግምጃ ቤት ሂሳብ"
+            "hrmis", "sigrh", "gestion des ressources humaines",
+            "e-gp", "egp", "electronic government procurement", "marchés publics électroniques",
+            "budgeting, planning", "financial reporting solution", "performance management solution",
+            "pafen", "namfisa", "نظام معلومات الإدارة المالية", "نظام الإدارة المالية المتكامل",
+            "የተቀናጀ የፋይናንስ አስተዳደር መረጃ ሥርዓት"
         }
 
-    def evaluate(self, title: str, description: str = "", buyer: str = "", country: str = "", has_valid_deadline: bool = False) -> dict:
+    def evaluate(self, title: str, description: str = "", buyer: str = "", country: str = "", *args, **kwargs) -> dict:
         search_corpus = f"{title} {description} {buyer} {country}".lower()
+        has_valid_deadline = kwargs.get("has_valid_deadline", False)
 
-        # Rule 1: Drop news, speeches, or press events unless explicitly marked with a tender deadline
         if not has_valid_deadline:
-            if any(pattern in search_corpus for pattern in IRRELEVANT_PATTERNS):
-                return {"is_relevant": False, "tier": "EXCLUDED", "reason": "Press release / news article"}
+            if any(p in search_corpus for p in IRRELEVANT_PATTERNS):
+                return {"is_relevant": False, "tier": "EXCLUDED", "reason": "Press release"}
 
-        # Rule 2: Verify active procurement intent (RFP, Tender, EOI, Bidding Notice)
-        has_intent = any(intent in search_corpus for intent in PROCUREMENT_ACTION_INTENT) or has_valid_deadline
+        has_intent = any(i in search_corpus for i in PROCUREMENT_ACTION_INTENT) or has_valid_deadline
         if not has_intent:
-            return {"is_relevant": False, "tier": "EXCLUDED", "reason": "No procurement action intent (RFP/EOI/Tender)"}
+            return {"is_relevant": False, "tier": "EXCLUDED", "reason": "No procurement action intent"}
 
-        # Rule 3: Negative filter exclusions (e.g. school systems, private accounting)
         is_whitelisted = any(w in search_corpus for w in self.exemptions_whitelist)
         if not is_whitelisted:
             for exc in self.strict_exclusions:
                 if exc in search_corpus:
                     return {"is_relevant": False, "tier": "EXCLUDED", "reason": f"Excluded by rule: {exc}"}
 
-        # Rule 4: Match against PFM knowledge bases
         matched_anchors = [a for a in self.primary_anchors if a in search_corpus]
         matched_core = [t for t in self.flat_core_terms if t in search_corpus]
         matched_multi = [m for m in self.flat_multilingual_terms if m in search_corpus]
@@ -117,17 +112,15 @@ class OpportunityClassifier:
                 matched_early.append(f"{kw} ({area})")
 
         all_direct_matches = list(set(matched_core + matched_multi + matched_anchors))
-
         score = (len(matched_anchors) * 50) + (len(all_direct_matches) * 20) + (len(matched_buyers) * 15) + (len(matched_early) * 15)
 
-        # Tier assignment
         if matched_anchors or len(all_direct_matches) >= 2:
             tier = "TIER_1_DIRECT_GRP"
             is_relevant = True
         elif matched_early:
             tier = "TIER_2_EARLY_SIGNAL"
             is_relevant = True
-        elif all_direct_matches and matched_buyers:
+        elif all_direct_matches:
             tier = "TIER_3_ADJACENT"
             is_relevant = True
         else:
