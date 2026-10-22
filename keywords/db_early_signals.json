@@ -1,0 +1,208 @@
+{
+  "Diagnostic work": {
+    "keywords": [
+      "IFMIS diagnostic",
+      "FMIS diagnostic",
+      "PFM diagnostic",
+      "assessment of financial management systems",
+      "assessment of IFMIS",
+      "review of existing IFMIS",
+      "public expenditure and financial accountability assessment",
+      "PEFA assessment",
+      "PFM performance assessment"
+    ],
+    "note": "Often identifies pre-procurement positioning before the software tender is released."
+  },
+  "RFP preparation": {
+    "keywords": [
+      "preparation of IFMIS RFP",
+      "preparation of bidding documents for IFMIS",
+      "development of technical specifications for IFMIS",
+      "drafting terms of reference for FMIS",
+      "functional requirements for IFMIS",
+      "system requirements specification",
+      "SRS",
+      "procurement advisor for IFMIS"
+    ],
+    "note": "High-value early signal."
+  },
+  "Roadmap/strategy": {
+    "keywords": [
+      "IFMIS roadmap",
+      "FMIS roadmap",
+      "PFM reform roadmap",
+      "digital PFM strategy",
+      "financial management systems strategy",
+      "treasury modernization roadmap",
+      "budget modernization roadmap",
+      "ICT strategy for Ministry of Finance"
+    ],
+    "note": "Flag as pre-opportunity / signal."
+  },
+  "Blueprint/design": {
+    "keywords": [
+      "IFMIS blueprint",
+      "target operating model for PFM",
+      "future-state architecture",
+      "enterprise architecture for Ministry of Finance",
+      "solution architecture for IFMIS",
+      "business architecture for PFM"
+    ],
+    "note": "Can shape future RFP language."
+  },
+  "Donor-funded TA": {
+    "keywords": [
+      "technical assistance for PFM reform",
+      "PFM reform project",
+      "public sector modernization project",
+      "fiscal governance project",
+      "economic governance project",
+      "state financial management reform project",
+      "fiduciary systems strengthening"
+    ],
+    "note": "Track donor, consultants, counterpart ministry, and reform sequence."
+  },
+  "IFMIS infrastructure": {
+    "keywords": [
+      "servers for IFMIS",
+      "hardware for IFMIS",
+      "IFMIS data center",
+      "FMIS infrastructure",
+      "treasury data center",
+      "Ministry of Finance data center",
+      "hardware for Ministry of Finance",
+      "equipment for budget department"
+    ],
+    "note": "Flag only when buyer context is MoF or Treasury."
+  },
+  "Cloud/hosting": {
+    "keywords": [
+      "cloud hosting for IFMIS",
+      "government cloud for Ministry of Finance",
+      "private cloud for PFM",
+      "cloud infrastructure for treasury",
+      "IFMIS hosting",
+      "managed hosting for financial management system"
+    ],
+    "note": "Useful early infrastructure signal."
+  },
+  "Disaster recovery": {
+    "keywords": [
+      "disaster recovery site",
+      "DR site for IFMIS",
+      "backup site for Ministry of Finance",
+      "business continuity for IFMIS",
+      "high availability for FMIS",
+      "data backup for treasury systems"
+    ],
+    "note": "Often precedes or accompanies system modernization."
+  },
+  "Networking": {
+    "keywords": [
+      "WAN for Ministry of Finance",
+      "connectivity for treasury offices",
+      "network infrastructure for IFMIS rollout",
+      "VPN for regional treasury offices",
+      "LAN upgrade for Ministry of Finance",
+      "connectivity for budget offices"
+    ],
+    "note": "Flag if linked to IFMIS rollout or MoF/Treasury."
+  },
+  "Cybersecurity": {
+    "keywords": [
+      "cybersecurity for Ministry of Finance",
+      "security audit of IFMIS",
+      "penetration testing of IFMIS",
+      "identity and access management for financial systems",
+      "PKI for government payments",
+      "SOC for Ministry of Finance"
+    ],
+    "note": "Relevant if tied to MoF/Treasury/IFMIS."
+  },
+  "End-user rollout": {
+    "keywords": [
+      "computers for treasury offices",
+      "equipment for accounting offices",
+      "scanners for payment processing",
+      "printers for regional treasuries",
+      "biometric devices for payroll",
+      "user equipment for IFMIS rollout"
+    ],
+    "note": "Do not over-flag generic hardware; focus on PFM/MoF context."
+  },
+  "Chart of accounts reform": {
+    "keywords": [
+      "unified chart of accounts",
+      "COA reform",
+      "budget classification reform",
+      "accounting classification",
+      "harmonization of budget and accounting classifications"
+    ],
+    "note": "Frequent upstream prerequisite to IFMIS/GRP procurement."
+  },
+  "Treasury reform": {
+    "keywords": [
+      "Treasury Single Account implementation",
+      "TSA reform",
+      "cash management reform",
+      "treasury modernization",
+      "payment centralization",
+      "bank account rationalization"
+    ],
+    "note": "Can precede treasury system or IFMIS module procurement."
+  },
+  "IPSAS/accounting reform": {
+    "keywords": [
+      "IPSAS implementation",
+      "accrual accounting roadmap",
+      "migration to accrual accounting",
+      "public sector accounting reform",
+      "government financial reporting reform"
+    ],
+    "note": "Can signal upcoming accounting/reporting system changes."
+  },
+  "Budget reform": {
+    "keywords": [
+      "program budgeting reform",
+      "MTEF implementation",
+      "performance budgeting reform",
+      "budget preparation reform",
+      "budget credibility",
+      "budget execution reform"
+    ],
+    "note": "Can precede budget formulation/execution system work."
+  },
+  "Payroll/civil service reform": {
+    "keywords": [
+      "payroll audit",
+      "wage bill control",
+      "establishment control",
+      "HRMIS reform",
+      "civil service census",
+      "biometric verification of civil servants"
+    ],
+    "note": "Relevant when linked to payroll, IFMIS, or public service controls."
+  },
+  "Fiscal transparency": {
+    "keywords": [
+      "open budget initiative",
+      "fiscal transparency portal",
+      "citizen budget",
+      "budget transparency",
+      "public expenditure tracking",
+      "open fiscal data"
+    ],
+    "note": "May indicate portal/dashboard/reporting opportunities."
+  },
+  "PEFA/action plans": {
+    "keywords": [
+      "PEFA action plan",
+      "PFM action plan",
+      "public finance reform action plan",
+      "fiduciary risk assessment",
+      "public expenditure review",
+      "PER"
+    ],
+    "note": "Track action plans and donor funding."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "strict_exclusions": [
+    {
+      "term": "generic ERP for state-owned enterprise",
+      "reason": "Usually commercial ERP, not core PFM"
+    },
+    {
+      "term": "private-sector accounting software",
+      "reason": "Not relevant unless public sector/MoF"
+    },
+    {
+      "term": "school management system",
+      "reason": "Ignore unless budget/expenditure integration"
+    },
+    {
+      "term": "hospital management system",
+      "reason": "Ignore unless public health financial management or IFMIS integration"
+    },
+    {
+      "term": "banking core system",
+      "reason": "Usually not FreeBalance unless TSA/payment integration"
+    },
+    {
+      "term": "audit services only",
+      "reason": "Usually consulting/accounting firms, unless system audit or IFMIS controls"
+    },
+    {
+      "term": "external financial audit",
+      "reason": "Low relevance"
+    },
+    {
+      "term": "website design / portal only",
+      "reason": "Flag only if fiscal transparency, budget portal, or open budget data"
+    },
+    {
+      "term": "generic cybersecurity",
+      "reason": "Flag only if for MoF/Treasury/IFMIS"
+    },
+    {
+      "term": "generic hardware",
+      "reason": "Flag only if for MoF/Treasury/IFMIS/PFM project"
+    }
+  ],
+  "exemptions_whitelist": [
+    "ifmis",
+    "fmis",
+    "grp",
+    "sigfp",
+    "sigfe",
+    "ministry of finance",
+    "national treasury",
+    "compte unique",
+    "conta única"
+  ]
+}

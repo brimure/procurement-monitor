@@ -1,0 +1,74 @@
+{
+  "english_buyers": [
+    "Ministry of Finance",
+    "Ministry of Economy and Finance",
+    "Ministry of Finance and Budget",
+    "Ministry of Finance and Planning",
+    "Treasury",
+    "National Treasury",
+    "General Treasury",
+    "Accountant General",
+    "Controller General of Accounts",
+    "Budget Directorate",
+    "Directorate General of Budget",
+    "Directorate of Public Accounts",
+    "Public Expenditure Department",
+    "Debt Management Office",
+    "Revenue Authority",
+    "Tax Authority",
+    "Customs Authority",
+    "Civil Service Ministry",
+    "Public Service Commission",
+    "Pension Authority",
+    "Prime Minister's Delivery Unit",
+    "e-Government Agency",
+    "Central Bank"
+  ],
+  "french_buyers": [
+    "Ministère des Finances",
+    "Ministère de l'Économie et des Finances",
+    "Ministère du Budget",
+    "Direction Générale du Budget",
+    "Trésor Public",
+    "Direction Générale de la Comptabilité Publique",
+    "Direction de la Solde",
+    "Autorité de Régulation des Marchés Publics",
+    "Banque Centrale"
+  ],
+  "portuguese_buyers": [
+    "Ministério das Finanças",
+    "Ministério da Economia e Finanças",
+    "Direcção Nacional do Tesouro",
+    "Tesouro Nacional",
+    "Direcção Geral do Orçamento",
+    "Direcção Nacional da Contabilidade Pública",
+    "Gabinete de Gestão da Dívida Pública",
+    "Banco Central"
+  ],
+  "arabic_buyers": [
+    "وزارة المالية",
+    "وزارة الاقتصاد والمالية",
+    "الخزانة العامة",
+    "إدارة الموازنة",
+    "ديوان المحاسبة",
+    "البنك المركزي"
+  ],
+  "amharic_buyers": [
+    "የገንዘብ ሚኒስቴር",
+    "የገንዘብና ኢኮኖሚ ልማት ሚኒስቴር",
+    "የመንግስት ግዢና ንብረት ባለስልጣን",
+    "ብሔራዊ ባንክ"
+  ],
+  "multilateral_funders": [
+    "World Bank",
+    "African Development Bank",
+    "AfDB",
+    "International Monetary Fund",
+    "IMF",
+    "UNDP",
+    "European Union",
+    "GIZ",
+    "FCDO",
+    "USAID"
+  ]
+}

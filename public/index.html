@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa PFM & GRP Procurement Monitor | FreeBalance Pipeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+    <!-- Top Header -->
+    <header class="bg-indigo-950 text-white py-6 border-b border-indigo-900 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight flex items-center gap-2">
+                        <span>🏛️</span> Africa PFM & GRP Opportunity Monitor
+                    </h1>
+                    <p class="text-indigo-200 text-sm mt-1">
+                        Tracking 33 Countries across Eastern, Southern, and Central Africa
+                    </p>
+                </div>
+                <div class="text-left md:text-right">
+                    <span id="last-updated" class="text-xs bg-indigo-900/80 px-3 py-1.5 rounded-full border border-indigo-700/50 text-indigo-200 font-mono">
+                        Checking feed...
+                    </span>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
+                <div class="bg-indigo-900/40 p-3 rounded-lg border border-indigo-800/60">
+                    <p class="text-xs text-indigo-300 font-medium">Total Opportunities</p>
+                    <p id="stat-total" class="text-2xl font-bold text-white mt-0.5">0</p>
+                </div>
+                <div class="bg-emerald-950/40 p-3 rounded-lg border border-emerald-800/50">
+                    <p class="text-xs text-emerald-300 font-medium">★ Tier 1 Direct GRP/IFMIS</p>
+                    <p id="stat-tier1" class="text-2xl font-bold text-emerald-400 mt-0.5">0</p>
+                </div>
+                <div class="bg-amber-950/40 p-3 rounded-lg border border-amber-800/50">
+                    <p class="text-xs text-amber-300 font-medium">⚡ Tier 2 Early Signals</p>
+                    <p id="stat-tier2" class="text-2xl font-bold text-amber-400 mt-0.5">0</p>
+                </div>
+                <div class="bg-blue-950/40 p-3 rounded-lg border border-blue-800/50">
+                    <p class="text-xs text-blue-300 font-medium">📌 Tier 3 Adjacent PFM</p>
+                    <p id="stat-tier3" class="text-2xl font-bold text-blue-400 mt-0.5">0</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Controls & Filters -->
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6 flex flex-wrap gap-3 items-center justify-between">
+            <div class="flex flex-wrap gap-3 items-center flex-1">
+                <div class="relative min-w-[260px] flex-1 sm:flex-initial">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-sm"></i>
+                    <input type="text" id="search-box" placeholder="Search keywords, country, or entity..." 
+                           class="w-full pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent">
+                </div>
+                <select id="region-filter" class="px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white text-slate-700">
+                    <option value="ALL">All African Regions</option>
+                    <option value="Eastern Africa">Eastern Africa</option>
+                    <option value="Southern Africa">Southern Africa</option>
+                    <option value="Central Africa">Central Africa</option>
+                </select>
+                <select id="tier-filter" class="px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white text-slate-700">
+                    <option value="ALL">All Priority Tiers</option>
+                    <option value="TIER_1_DIRECT_GRP">Tier 1: Direct GRP / IFMIS</option>
+                    <option value="TIER_2_EARLY_SIGNAL">Tier 2: Early Signals / Reform</option>
+                    <option value="TIER_3_ADJACENT">Tier 3: Adjacent PFM Modules</option>
+                </select>
+            </div>
+            <div id="results-count" class="text-xs font-semibold px-3 py-1.5 bg-slate-100 rounded-md text-slate-600 border border-slate-200">
+                0 Leads Matched
+            </div>
+        </div>
+
+        <!-- Opportunities Grid -->
+        <div id="tenders-container" class="grid gap-4">
+            <div class="text-center py-16 text-slate-400">
+                <i class="fa-solid fa-circle-notch fa-spin text-3xl mb-3"></i>
+                <p>Loading procurement pipeline...</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let opportunities = [];
+
+        async function init() {
+            try {
+                const response = await fetch('./tenders.json?cache_bust=' + Date.now());
+                const data = await response.json();
+                
+                document.getElementById('last-updated').innerText = `Last Refreshed: ${data.last_updated}`;
+                document.getElementById('stat-total').innerText = data.total_opportunities || 0;
+                document.getElementById('stat-tier1').innerText = data.tier_counts?.TIER_1_DIRECT_GRP || 0;
+                document.getElementById('stat-tier2').innerText = data.tier_counts?.TIER_2_EARLY_SIGNAL || 0;
+                document.getElementById('stat-tier3').innerText = data.tier_counts?.TIER_3_ADJACENT || 0;
+
+                opportunities = data.tenders || [];
+                render();
+            } catch (err) {
+                document.getElementById('tenders-container').innerHTML = `
+                    <div class="bg-rose-50 border border-rose-200 text-rose-700 p-6 rounded-xl text-center">
+                        <p class="font-bold">Error loading live data.</p>
+                        <p class="text-sm mt-1">Please ensure harvester.py has been executed and generated public/tenders.json.</p>
+                    </div>`;
+            }
+        }
+
+        function render() {
+            const query = document.getElementById('search-box').value.toLowerCase();
+            const region = document.getElementById('region-filter').value;
+            const tier = document.getElementById('tier-filter').value;
+
+            const filtered = opportunities.filter(item => {
+                const searchBlob = `${item.title} ${item.country} ${item.entity} ${(item.matched_terms || []).join(' ')}`.toLowerCase();
+                const matchesQuery = searchBlob.includes(query);
+                const matchesRegion = region === 'ALL' || item.region.includes(region);
+                const matchesTier = tier === 'ALL' || item.tier === tier;
+                return matchesQuery && matchesRegion && matchesTier;
+            });
+
+            document.getElementById('results-count').innerText = `${filtered.length} Leads Matched`;
+            const container = document.getElementById('tenders-container');
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white p-12 text-center rounded-xl border border-dashed border-slate-300 text-slate-500">
+                        <i class="fa-regular fa-folder-open text-4xl mb-3 text-slate-300"></i>
+                        <p class="text-base font-semibold">No opportunities matched your active filters.</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = filtered.map(t => {
+                let badgeClass = "bg-blue-100 text-blue-800 border-blue-200";
+                let badgeLabel = "📌 Adjacent PFM";
+                if (t.tier === "TIER_1_DIRECT_GRP") {
+                    badgeClass = "bg-emerald-100 text-emerald-800 border-emerald-200";
+                    badgeLabel = "★ Direct GRP / IFMIS";
+                } else if (t.tier === "TIER_2_EARLY_SIGNAL") {
+                    badgeClass = "bg-amber-100 text-amber-800 border-amber-200";
+                    badgeLabel = "⚡ Early Signal";
+                }
+
+                return `
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-xs uppercase px-2.5 py-1 bg-slate-900 text-white rounded">${t.country}</span>
+                                    <span class="text-xs text-slate-500 font-medium">${t.entity}</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs px-2 py-0.5 rounded-full font-bold border ${badgeClass}">${badgeLabel}</span>
+                                    <span class="text-xs font-mono font-bold text-slate-400">Score: ${t.score}</span>
+                                </div>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mt-1 mb-2">${t.title}</h3>
+                            <div class="flex flex-wrap gap-1 mb-4">
+                                ${(t.matched_terms || []).map(term => `
+                                    <span class="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">${term}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+                            <span class="text-slate-400">Deadline: <strong>${t.deadline || 'N/A'}</strong></span>
+                            <a href="${t.url}" target="_blank" class="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition inline-flex items-center gap-1.5">
+                                View Source <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        document.getElementById('search-box').addEventListener('input', render);
+        document.getElementById('region-filter').addEventListener('change', render);
+        document.getElementById('tier-filter').addEventListener('change', render);
+
+        init();
+    </script>
+</body>
+</html>

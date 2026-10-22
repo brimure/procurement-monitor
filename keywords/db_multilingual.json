@@ -1,0 +1,260 @@
+{
+  "French": {
+    "PFM": [
+      "gestion des finances publiques",
+      "GFP"
+    ],
+    "IFMIS/FMIS": [
+      "système intégré de gestion des finances publiques",
+      "SIGFP",
+      "système d'information de gestion financière",
+      "SIGF"
+    ],
+    "Budget execution": [
+      "exécution budgétaire",
+      "chaîne de la dépense",
+      "gestion des dépenses publiques"
+    ],
+    "Budget preparation": [
+      "préparation budgétaire",
+      "élaboration du budget",
+      "budgétisation"
+    ],
+    "Program budgeting": [
+      "budget-programme",
+      "budgétisation par programme",
+      "budgétisation axée sur les résultats"
+    ],
+    "Commitment control": [
+      "contrôle des engagements",
+      "comptabilité des engagements",
+      "engagement budgétaire"
+    ],
+    "Treasury": [
+      "Trésor",
+      "gestion de la trésorerie",
+      "compte unique du Trésor",
+      "CUT"
+    ],
+    "Accounting": [
+      "comptabilité publique",
+      "plan comptable de l'État",
+      "états financiers de l'État"
+    ],
+    "Cash/bank reconciliation": [
+      "rapprochement bancaire",
+      "gestion de trésorerie",
+      "prévision de trésorerie"
+    ],
+    "Fiscal transparency": [
+      "transparence budgétaire",
+      "portail de transparence budgétaire",
+      "données budgétaires ouvertes"
+    ],
+    "Reform signal": [
+      "réforme des finances publiques",
+      "feuille de route GFP",
+      "diagnostic GFP",
+      "assistance technique GFP"
+    ]
+  },
+  "Portuguese": {
+    "PFM": [
+      "gestão das finanças públicas",
+      "GFP"
+    ],
+    "IFMIS/FMIS": [
+      "sistema integrado de gestão financeira",
+      "sistema integrado de gestão das finanças públicas",
+      "SIGF",
+      "SIGFE"
+    ],
+    "Budget execution": [
+      "execução orçamental",
+      "execução do orçamento",
+      "gestão da despesa pública"
+    ],
+    "Budget preparation": [
+      "preparação do orçamento",
+      "elaboração do orçamento",
+      "formulação orçamental"
+    ],
+    "Program budgeting": [
+      "orçamento-programa",
+      "orçamento por programas",
+      "orçamento baseado em resultados"
+    ],
+    "Commitment control": [
+      "cabimento",
+      "compromisso",
+      "controlo de compromissos",
+      "controlo orçamental"
+    ],
+    "Treasury": [
+      "Tesouro",
+      "gestão de tesouraria",
+      "Conta Única do Tesouro",
+      "CUT"
+    ],
+    "Accounting": [
+      "contabilidade pública",
+      "plano de contas do Estado",
+      "demonstrações financeiras do Estado"
+    ],
+    "Bank reconciliation": [
+      "reconciliação bancária",
+      "conciliação bancária"
+    ],
+    "Fiscal transparency": [
+      "transparência fiscal",
+      "transparência orçamental",
+      "portal de transparência"
+    ],
+    "Reform signal": [
+      "reforma das finanças públicas",
+      "roteiro de reforma",
+      "diagnóstico GFP",
+      "assistência técnica GFP"
+    ]
+  },
+  "Arabic": {
+    "PFM": [
+      "إدارة المالية العامة"
+    ],
+    "IFMIS/FMIS": [
+      "نظام معلومات الإدارة المالية",
+      "نظام الإدارة المالية المتكامل",
+      "نظام إدارة المالية العامة"
+    ],
+    "Budget": [
+      "الموازنة العامة",
+      "إعداد الموازنة",
+      "تنفيذ الموازنة"
+    ],
+    "Budget execution": [
+      "تنفيذ الميزانية",
+      "تنفيذ الموازنة",
+      "إدارة الإنفاق العام"
+    ],
+    "Commitment control": [
+      "الرقابة على الالتزامات",
+      "الالتزامات المالية",
+      "ضبط الالتزامات"
+    ],
+    "Treasury": [
+      "الخزانة العامة",
+      "إدارة الخزانة",
+      "حساب الخزينة الموحد"
+    ],
+    "Accounting": [
+      "المحاسبة الحكومية",
+      "المحاسبة العامة",
+      "دليل الحسابات"
+    ],
+    "Cash/bank reconciliation": [
+      "إدارة النقد",
+      "التسوية المصرفية",
+      "المطابقة البنكية"
+    ],
+    "Fiscal transparency": [
+      "الشفافية المالية",
+      "شفافية الموازنة",
+      "بوابة الشفافية المالية"
+    ],
+    "Reform signal": [
+      "إصلاح المالية العامة",
+      "تحديث إدارة المالية العامة",
+      "المساعدة الفنية لإدارة المالية العامة"
+    ]
+  },
+  "Amharic": {
+    "PFM": [
+      "የህዝብ ፋይናንስ አስተዳደር",
+      "የመንግስት ፋይናንስ አስተዳደር"
+    ],
+    "IFMIS/FMIS": [
+      "የተቀናጀ የፋይናንስ አስተዳደር መረጃ ሥርዓት",
+      "የፋይናንስ መረጃ ሥርዓት",
+      "የመንግስት የተቀናጀ የፋይናንስ ሥርዓት"
+    ],
+    "Budget/Budget Execution": [
+      "በጀት ዝግጅት",
+      "የበጀት አፈጻጸም",
+      "የበጀት አስተዳደር",
+      "መንግስት በጀት"
+    ],
+    "Treasury/TSA": [
+      "ግምጃ ቤት",
+      "አንድ ወጥ የግምጃ ቤት ሂሳብ",
+      "የገንዘብ አስተዳደር"
+    ],
+    "Accounting/COA": [
+      "የመንግስት ሂሳብ አያያዝ",
+      "የሂሳብ መደቦች ሰንጠረዥ",
+      "የመንግስት ሪፖርት"
+    ],
+    "Procurement": [
+      "የመንግስት ግዢ",
+      "የኤሌክትሮኒክስ ግዢ ሥርዓት",
+      "ግዢና ንብረት አስተዳደር"
+    ],
+    "Reform/Advisory": [
+      "የፋይናንስ ማሻሻያ",
+      "የቴክኒክ ድጋፍ",
+      "የስርዓት ዝርጋታ"
+    ]
+  },
+  "Spanish": {
+    "PFM": [
+      "gestión de las finanzas públicas",
+      "gestión financiera pública"
+    ],
+    "IFMIS/FMIS": [
+      "sistema integrado de administración financiera",
+      "SIAF",
+      "sistema integrado de gestión financiera"
+    ],
+    "Budget execution": [
+      "ejecución presupuestaria",
+      "gestión del gasto público"
+    ],
+    "Budget preparation": [
+      "formulación presupuestaria",
+      "preparación del presupuesto"
+    ],
+    "Program budgeting": [
+      "presupuesto por programas",
+      "presupuesto basado en resultados"
+    ],
+    "Commitment control": [
+      "compromiso presupuestario",
+      "control de compromisos",
+      "contabilidad de compromisos"
+    ],
+    "Treasury": [
+      "Tesorería",
+      "Cuenta Única del Tesoro",
+      "CUT",
+      "gestión de tesorería"
+    ],
+    "Accounting": [
+      "contabilidad gubernamental",
+      "contabilidad pública",
+      "plan de cuentas"
+    ],
+    "Bank reconciliation": [
+      "conciliación bancaria"
+    ],
+    "Fiscal transparency": [
+      "transparencia fiscal",
+      "transparencia presupuestaria",
+      "portal de transparencia fiscal"
+    ],
+    "Reform signal": [
+      "reforma de la gestión financiera pública",
+      "diagnóstico SIAF",
+      "asistencia técnica",
+      "hoja de ruta"
+    ]
+  }
+}
