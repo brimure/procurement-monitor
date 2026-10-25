@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-10-24 10:15:30 UTC",
-  "total_opportunities": 6,
-  "new_this_cycle": 6,
+  "last_updated": "2026-10-25 10:39:50 UTC",
+  "total_opportunities": 9,
+  "new_this_cycle": 9,
   "tier_counts": {
-    "TIER_1_DIRECT_GRP": 5,
+    "TIER_1_DIRECT_GRP": 8,
     "TIER_2_EARLY_SIGNAL": 1,
     "TIER_3_ADJACENT": 0
   },
   "tenders": [
     {
-      "id": "Burundi_5314026746284521039",
+      "id": "Burundi_7205926163442034415",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -17,19 +17,19 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 265,
       "matched_terms": [
+        "système intégré de gestion des finances publiques",
+        "gestion des finances publiques",
+        "sigfp",
         "sigf",
         "pafen",
-        "système intégré de gestion des finances publiques",
-        "sigfp",
-        "gfp",
-        "gestion des finances publiques"
+        "gfp"
       ],
       "url": "https://pafen.gov.bi/download/avis-de-report-de-la-date-de-depot-des-offres-dans-le-cadre-du-marche-dacquisition-et-mise-en-place-dun-systeme-integre-de-gestion-des-finances-publiques-du-burundi-sigfp_bi-la-nouvelle-date-de/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Malawi_2537525112772292151",
+      "id": "Malawi_1617694000718272208",
       "country": "Malawi",
       "region": "Eastern Africa",
       "entity": "Ministry of Finance",
@@ -47,7 +47,24 @@
       "days_left": null
     },
     {
-      "id": "Burundi_918813763978075371",
+      "id": "Namibia_3022816809151562808",
+      "country": "Namibia",
+      "region": "Southern Africa",
+      "entity": "NAMFISA",
+      "title": "G/OIB/NAMFISA-001/2026-27 &#8211; PROCUREMENT OF A BUDGETING, PLANNING, PROCUREMENT PLANNING AND FINANCIAL REPORTING SOLUTION",
+      "tier": "TIER_1_DIRECT_GRP",
+      "score": 155,
+      "matched_terms": [
+        "budgeting, planning",
+        "financial reporting solution",
+        "namfisa"
+      ],
+      "url": "https://www.namfisa.com.na/download/g-oib-namfisa-001-2026-27-procurement-of-a-budgeting-planning-procurement-planning-and-financial-reporting-solution/",
+      "deadline": "11 November 2026",
+      "days_left": 16
+    },
+    {
+      "id": "Burundi_6836756225268782724",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -64,7 +81,7 @@
       "days_left": null
     },
     {
-      "id": "Burundi_6236892813943191427",
+      "id": "Burundi_5503506290492004915",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -81,7 +98,24 @@
       "days_left": null
     },
     {
-      "id": "Burundi_5753288644533618020",
+      "id": "Namibia_4029631925958894727",
+      "country": "Namibia",
+      "region": "Southern Africa",
+      "entity": "NAMFISA",
+      "title": "G/OIB/NAMFISA-002/2026-27 &#8211; PROCUREMENT OF AN ENTERPRISE STRATEGY AND PERFORMANCE MANAGEMENT SOLUTION",
+      "tier": "TIER_1_DIRECT_GRP",
+      "score": 100,
+      "matched_terms": [
+        "performance management solution",
+        "per (PEFA/action plans)",
+        "namfisa"
+      ],
+      "url": "https://www.namfisa.com.na/download/g-oib-namfisa-002-2026-27-procurement-of-an-enterprise-strategy-and-performance-management-solution/",
+      "deadline": "11 November 2026",
+      "days_left": 16
+    },
+    {
+      "id": "Burundi_280776113778609365",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -97,7 +131,23 @@
       "days_left": null
     },
     {
-      "id": "Eritrea_342113232463548311",
+      "id": "Namibia_4463672444306037815",
+      "country": "Namibia",
+      "region": "Southern Africa",
+      "entity": "NAMFISA",
+      "title": "G/OIB/NAMFISA-003/2026-27 &#8211; PROCUREMENT OF HUMAN RESOURCES ADMINISTRATION AND LEARNING MANAGEMENT SOLUTIONS TWO LOT PROCUREMENT",
+      "tier": "TIER_1_DIRECT_GRP",
+      "score": 85,
+      "matched_terms": [
+        "namfisa",
+        "human resources administration"
+      ],
+      "url": "https://www.namfisa.com.na/download/g-oib-namfisa-003-2026-27-procurement-of-human-resources-administration-and-learning-management-solutions-two-lot-procurement/",
+      "deadline": "11 November 2026",
+      "days_left": 16
+    },
+    {
+      "id": "Eritrea_6819366561805475717",
       "country": "Eritrea",
       "region": "Eastern Africa",
       "entity": "Ministry of Finance / BidDetail",
@@ -105,8 +155,8 @@
       "tier": "TIER_2_EARLY_SIGNAL",
       "score": 30,
       "matched_terms": [
-        "per (PEFA/action plans)",
-        "ministry of finance"
+        "ministry of finance",
+        "per (PEFA/action plans)"
       ],
       "url": "https://www.biddetail.com/latest-tenders/118335045$1dd46670-d8ca-4b57-a076-864e1cb92828",
       "deadline": "Active Tender",
