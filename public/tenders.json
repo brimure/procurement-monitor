@@ -1,15 +1,15 @@
 {
-  "last_updated": "2026-10-31 11:39:31 UTC",
-  "total_opportunities": 8,
-  "new_this_cycle": 8,
+  "last_updated": "2026-11-01 12:38:46 UTC",
+  "total_opportunities": 9,
+  "new_this_cycle": 9,
   "tier_counts": {
     "TIER_1_DIRECT_GRP": 8,
-    "TIER_2_EARLY_SIGNAL": 0,
+    "TIER_2_EARLY_SIGNAL": 1,
     "TIER_3_ADJACENT": 0
   },
   "tenders": [
     {
-      "id": "Burundi_8830991419832031038",
+      "id": "Burundi_2035578775543312445",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -17,19 +17,19 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 265,
       "matched_terms": [
-        "sigf",
         "gfp",
+        "sigfp",
+        "système intégré de gestion des finances publiques",
         "gestion des finances publiques",
         "pafen",
-        "système intégré de gestion des finances publiques",
-        "sigfp"
+        "sigf"
       ],
       "url": "https://pafen.gov.bi/download/avis-de-report-de-la-date-de-depot-des-offres-dans-le-cadre-du-marche-dacquisition-et-mise-en-place-dun-systeme-integre-de-gestion-des-finances-publiques-du-burundi-sigfp_bi-la-nouvelle-date-de/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Malawi_210177196490490542",
+      "id": "Malawi_998761194794325471",
       "country": "Malawi",
       "region": "Eastern Africa",
       "entity": "Ministry of Finance",
@@ -38,16 +38,16 @@
       "score": 175,
       "matched_terms": [
         "ministry of finance",
-        "tsa",
         "ifmis",
-        "fmis"
+        "fmis",
+        "tsa"
       ],
       "url": "https://www.finance.gov.mw/documents/uploads/2026-08/PFM%20%28Cash%20mgt_PPP_IFMIS%2C%20TSA%29%20Regulations%202023.pdf",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Namibia_2446449734187233534",
+      "id": "Namibia_7714609226235445564",
       "country": "Namibia",
       "region": "Southern Africa",
       "entity": "NAMFISA",
@@ -55,16 +55,16 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 155,
       "matched_terms": [
-        "financial reporting solution",
         "budgeting, planning",
-        "namfisa"
+        "namfisa",
+        "financial reporting solution"
       ],
       "url": "https://www.namfisa.com.na/download/g-oib-namfisa-001-2026-27-procurement-of-a-budgeting-planning-procurement-planning-and-financial-reporting-solution/",
       "deadline": "11 November 2026",
-      "days_left": 10
+      "days_left": 9
     },
     {
-      "id": "Burundi_1090644418301690995",
+      "id": "Burundi_4421036760590184943",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -72,17 +72,17 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 115,
       "matched_terms": [
-        "ministère des finances",
-        "cut",
         "setic",
-        "pafen"
+        "pafen",
+        "ministère des finances",
+        "cut"
       ],
       "url": "https://pafen.gov.bi/download/avis-de-manifestation-dinteret-pour-le-recrutement-dun-cabinet-charge-dassurer-la-formation-des-techniciens-du-ministere-des-finances-du-budget-et-de-leconomie-numerique-mfben-du-secretari/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Burundi_5784003448601446713",
+      "id": "Burundi_7425422452301826594",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -90,16 +90,16 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 105,
       "matched_terms": [
-        "gfp",
+        "gestion des finances publiques",
         "pafen",
-        "gestion des finances publiques"
+        "gfp"
       ],
       "url": "https://pafen.gov.bi/download/tdrs-recrutement-dun-consultant-charge-de-la-realisation-du-chiffrage-costing-de-la-strategie-des-reformes-de-gestion-des-finances-publiques-srgfp/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Namibia_4774642279429952646",
+      "id": "Namibia_3832605513122924390",
       "country": "Namibia",
       "region": "Southern Africa",
       "entity": "NAMFISA",
@@ -107,16 +107,16 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 100,
       "matched_terms": [
+        "per (PEFA/action plans)",
         "performance management solution",
-        "namfisa",
-        "per (PEFA/action plans)"
+        "namfisa"
       ],
       "url": "https://www.namfisa.com.na/download/g-oib-namfisa-002-2026-27-procurement-of-an-enterprise-strategy-and-performance-management-solution/",
       "deadline": "11 November 2026",
-      "days_left": 10
+      "days_left": 9
     },
     {
-      "id": "Burundi_3035143433062592996",
+      "id": "Burundi_1603085728687250480",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -124,15 +124,15 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 85,
       "matched_terms": [
-        "e-gp",
-        "pafen"
+        "pafen",
+        "e-gp"
       ],
       "url": "https://pafen.gov.bi/download/avis-de-manifestation-dinteret-pour-le-recrutement-dun-cabinet-charge-de-lelaboration-et-de-la-mise-en-oeuvre-de-la-strategie-de-gestion-du-changement-et-de-communication-da/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Namibia_8113337522473541579",
+      "id": "Namibia_4144168003193591103",
       "country": "Namibia",
       "region": "Southern Africa",
       "entity": "NAMFISA",
@@ -145,7 +145,23 @@
       ],
       "url": "https://www.namfisa.com.na/download/g-oib-namfisa-003-2026-27-procurement-of-human-resources-administration-and-learning-management-solutions-two-lot-procurement/",
       "deadline": "11 November 2026",
-      "days_left": 10
+      "days_left": 9
+    },
+    {
+      "id": "Comoros_7253913575974940811",
+      "country": "Comoros",
+      "region": "Eastern Africa",
+      "entity": "Ministry of Finance / BidDetail",
+      "title": "Tenders are invited for Recruitment Of A Firm In Charge Of Performance Audit Environmental And Social Phases Iii And Iv Of The Programme",
+      "tier": "TIER_2_EARLY_SIGNAL",
+      "score": 30,
+      "matched_terms": [
+        "per (PEFA/action plans)",
+        "ministry of finance"
+      ],
+      "url": "https://www.biddetail.com/latest-tenders/120087671$c80b2f24-5f13-48d2-84bf-05851c679f44",
+      "deadline": "Active Tender",
+      "days_left": null
     }
   ]
 }
