@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-06 13:42:53 UTC",
+  "last_updated": "2026-11-07 12:25:04 UTC",
   "total_opportunities": 9,
   "new_this_cycle": 9,
   "tier_counts": {
@@ -9,7 +9,7 @@
   },
   "tenders": [
     {
-      "id": "Burundi_2157705182386955208",
+      "id": "Burundi_2832348709986232061",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -17,19 +17,19 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 265,
       "matched_terms": [
-        "sigf",
-        "gestion des finances publiques",
         "gfp",
         "pafen",
+        "gestion des finances publiques",
+        "système intégré de gestion des finances publiques",
         "sigfp",
-        "système intégré de gestion des finances publiques"
+        "sigf"
       ],
       "url": "https://pafen.gov.bi/download/avis-de-report-de-la-date-de-depot-des-offres-dans-le-cadre-du-marche-dacquisition-et-mise-en-place-dun-systeme-integre-de-gestion-des-finances-publiques-du-burundi-sigfp_bi-la-nouvelle-date-de/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Malawi_2568105252053027023",
+      "id": "Malawi_2973317500709086637",
       "country": "Malawi",
       "region": "Eastern Africa",
       "entity": "Ministry of Finance",
@@ -39,15 +39,15 @@
       "matched_terms": [
         "fmis",
         "ifmis",
-        "ministry of finance",
-        "tsa"
+        "tsa",
+        "ministry of finance"
       ],
       "url": "https://www.finance.gov.mw/documents/uploads/2026-08/PFM%20%28Cash%20mgt_PPP_IFMIS%2C%20TSA%29%20Regulations%202023.pdf",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Namibia_3269820033321109481",
+      "id": "Namibia_803269058026804690",
       "country": "Namibia",
       "region": "Southern Africa",
       "entity": "NAMFISA",
@@ -55,16 +55,16 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 155,
       "matched_terms": [
-        "financial reporting solution",
         "namfisa",
-        "budgeting, planning"
+        "budgeting, planning",
+        "financial reporting solution"
       ],
       "url": "https://www.namfisa.com.na/download/g-oib-namfisa-001-2026-27-procurement-of-a-budgeting-planning-procurement-planning-and-financial-reporting-solution/",
       "deadline": "11 November 2026",
-      "days_left": 4
+      "days_left": 3
     },
     {
-      "id": "Burundi_7175677463853635574",
+      "id": "Burundi_8622172824937618564",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -72,17 +72,17 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 115,
       "matched_terms": [
-        "ministère des finances",
         "setic",
         "pafen",
-        "cut"
+        "cut",
+        "ministère des finances"
       ],
       "url": "https://pafen.gov.bi/download/avis-de-manifestation-dinteret-pour-le-recrutement-dun-cabinet-charge-dassurer-la-formation-des-techniciens-du-ministere-des-finances-du-budget-et-de-leconomie-numerique-mfben-du-secretari/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Burundi_2764195012718799098",
+      "id": "Burundi_3890237047269189751",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -99,7 +99,7 @@
       "days_left": null
     },
     {
-      "id": "Namibia_998341201866352882",
+      "id": "Namibia_6072588435831811624",
       "country": "Namibia",
       "region": "Southern Africa",
       "entity": "NAMFISA",
@@ -107,16 +107,16 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 100,
       "matched_terms": [
+        "per (PEFA/action plans)",
         "namfisa",
-        "performance management solution",
-        "per (PEFA/action plans)"
+        "performance management solution"
       ],
       "url": "https://www.namfisa.com.na/download/g-oib-namfisa-002-2026-27-procurement-of-an-enterprise-strategy-and-performance-management-solution/",
       "deadline": "11 November 2026",
-      "days_left": 4
+      "days_left": 3
     },
     {
-      "id": "Burundi_6814076892247665385",
+      "id": "Burundi_7331538245436036841",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -124,15 +124,15 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 85,
       "matched_terms": [
-        "e-gp",
-        "pafen"
+        "pafen",
+        "e-gp"
       ],
       "url": "https://pafen.gov.bi/download/avis-de-manifestation-dinteret-pour-le-recrutement-dun-cabinet-charge-de-lelaboration-et-de-la-mise-en-oeuvre-de-la-strategie-de-gestion-du-changement-et-de-communication-da/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Namibia_106528084119683235",
+      "id": "Namibia_4711724304232752225",
       "country": "Namibia",
       "region": "Southern Africa",
       "entity": "NAMFISA",
@@ -140,15 +140,15 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 85,
       "matched_terms": [
-        "human resources administration",
-        "namfisa"
+        "namfisa",
+        "human resources administration"
       ],
       "url": "https://www.namfisa.com.na/download/g-oib-namfisa-003-2026-27-procurement-of-human-resources-administration-and-learning-management-solutions-two-lot-procurement/",
       "deadline": "11 November 2026",
-      "days_left": 4
+      "days_left": 3
     },
     {
-      "id": "Comoros_3726329440302382124",
+      "id": "Comoros_2927997896368238654",
       "country": "Comoros",
       "region": "Eastern Africa",
       "entity": "Ministry of Finance / BidDetail",
@@ -156,8 +156,8 @@
       "tier": "TIER_2_EARLY_SIGNAL",
       "score": 30,
       "matched_terms": [
-        "ministry of finance",
-        "per (PEFA/action plans)"
+        "per (PEFA/action plans)",
+        "ministry of finance"
       ],
       "url": "https://www.biddetail.com/latest-tenders/120087671$c80b2f24-5f13-48d2-84bf-05851c679f44",
       "deadline": "Active Tender",
