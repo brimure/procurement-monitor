@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-21 14:09:56 UTC",
+  "last_updated": "2026-11-22 14:00:52 UTC",
   "total_opportunities": 10,
   "new_this_cycle": 10,
   "tier_counts": {
@@ -9,7 +9,7 @@
   },
   "tenders": [
     {
-      "id": "Burundi_137086419095207963",
+      "id": "Burundi_4881542361576362657",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -17,19 +17,19 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 265,
       "matched_terms": [
-        "système intégré de gestion des finances publiques",
         "sigf",
+        "système intégré de gestion des finances publiques",
+        "pafen",
         "gestion des finances publiques",
         "sigfp",
-        "gfp",
-        "pafen"
+        "gfp"
       ],
       "url": "https://pafen.gov.bi/download/avis-de-report-de-la-date-de-depot-des-offres-dans-le-cadre-du-marche-dacquisition-et-mise-en-place-dun-systeme-integre-de-gestion-des-finances-publiques-du-burundi-sigfp_bi-la-nouvelle-date-de/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Malawi_1095347515939929108",
+      "id": "Malawi_5436824597743831446",
       "country": "Malawi",
       "region": "Eastern Africa",
       "entity": "Ministry of Finance",
@@ -37,17 +37,17 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 175,
       "matched_terms": [
-        "fmis",
+        "tsa",
         "ministry of finance",
         "ifmis",
-        "tsa"
+        "fmis"
       ],
       "url": "https://www.finance.gov.mw/documents/uploads/2026-08/PFM%20%28Cash%20mgt_PPP_IFMIS%2C%20TSA%29%20Regulations%202023.pdf",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Namibia_2331816937781211178",
+      "id": "Namibia_6014109762552095976",
       "country": "Namibia",
       "region": "Southern Africa",
       "entity": "NAMFISA",
@@ -55,16 +55,16 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 155,
       "matched_terms": [
-        "budgeting, planning",
         "financial reporting solution",
+        "budgeting, planning",
         "namfisa"
       ],
       "url": "https://www.namfisa.com.na/download/g-oib-namfisa-001-2026-27-procurement-of-a-budgeting-planning-procurement-planning-and-financial-reporting-solution/",
       "deadline": "11 November 2026",
-      "days_left": -11
+      "days_left": -12
     },
     {
-      "id": "Burundi_1474814775373327270",
+      "id": "Burundi_5529834050383068418",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -73,16 +73,16 @@
       "score": 115,
       "matched_terms": [
         "ministère des finances",
+        "setic",
         "cut",
-        "pafen",
-        "setic"
+        "pafen"
       ],
       "url": "https://pafen.gov.bi/download/avis-de-manifestation-dinteret-pour-le-recrutement-dun-cabinet-charge-dassurer-la-formation-des-techniciens-du-ministere-des-finances-du-budget-et-de-leconomie-numerique-mfben-du-secretari/",
       "deadline": "Active Tender",
       "days_left": null
     },
     {
-      "id": "Burundi_8477388009478779958",
+      "id": "Burundi_7525849622229538312",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -90,8 +90,8 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 105,
       "matched_terms": [
-        "pafen",
         "gestion des finances publiques",
+        "pafen",
         "gfp"
       ],
       "url": "https://pafen.gov.bi/download/tdrs-recrutement-dun-consultant-charge-de-la-realisation-du-chiffrage-costing-de-la-strategie-des-reformes-de-gestion-des-finances-publiques-srgfp/",
@@ -99,7 +99,7 @@
       "days_left": null
     },
     {
-      "id": "Namibia_1853749100087624028",
+      "id": "Namibia_428802659326412356",
       "country": "Namibia",
       "region": "Southern Africa",
       "entity": "NAMFISA",
@@ -107,16 +107,16 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 100,
       "matched_terms": [
-        "namfisa",
+        "per (PEFA/action plans)",
         "performance management solution",
-        "per (PEFA/action plans)"
+        "namfisa"
       ],
       "url": "https://www.namfisa.com.na/download/g-oib-namfisa-002-2026-27-procurement-of-an-enterprise-strategy-and-performance-management-solution/",
       "deadline": "11 November 2026",
-      "days_left": -11
+      "days_left": -12
     },
     {
-      "id": "Burundi_8621447817294033770",
+      "id": "Burundi_8549260646632418190",
       "country": "Burundi",
       "region": "Eastern Africa",
       "entity": "PAFEN - Projet Économie Numérique (Burundi)",
@@ -132,7 +132,7 @@
       "days_left": null
     },
     {
-      "id": "Comoros_4771239262199669643",
+      "id": "Comoros_5137861854050784459",
       "country": "Comoros",
       "region": "Eastern Africa",
       "entity": "Ministry of Finance / BidDetail",
@@ -148,7 +148,7 @@
       "days_left": null
     },
     {
-      "id": "Namibia_4136834254968449727",
+      "id": "Namibia_3644864965610705599",
       "country": "Namibia",
       "region": "Southern Africa",
       "entity": "NAMFISA",
@@ -156,15 +156,15 @@
       "tier": "TIER_1_DIRECT_GRP",
       "score": 85,
       "matched_terms": [
-        "namfisa",
-        "human resources administration"
+        "human resources administration",
+        "namfisa"
       ],
       "url": "https://www.namfisa.com.na/download/g-oib-namfisa-003-2026-27-procurement-of-human-resources-administration-and-learning-management-solutions-two-lot-procurement/",
       "deadline": "11 November 2026",
-      "days_left": -11
+      "days_left": -12
     },
     {
-      "id": "Comoros_377113860126578170",
+      "id": "Comoros_758789522144655585",
       "country": "Comoros",
       "region": "Eastern Africa",
       "entity": "Ministry of Finance / BidDetail",
@@ -172,8 +172,8 @@
       "tier": "TIER_2_EARLY_SIGNAL",
       "score": 30,
       "matched_terms": [
-        "ministry of finance",
-        "per (PEFA/action plans)"
+        "per (PEFA/action plans)",
+        "ministry of finance"
       ],
       "url": "https://www.biddetail.com/latest-tenders/120087671$c80b2f24-5f13-48d2-84bf-05851c679f44",
       "deadline": "Active Tender",
